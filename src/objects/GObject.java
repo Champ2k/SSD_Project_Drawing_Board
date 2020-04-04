@@ -23,20 +23,26 @@ public abstract class GObject {
 	}
 
 	public boolean pointerHit(int pointerX, int pointerY) {
-		// TODO: Implement this method.
-		return false;
+		// check pointerX and pointerY must in 4quadrant of GObject
+		return pointerX >= x && pointerX <= x + width && pointerY >= y && pointerY <= y + height;
 	}
 	
 	public void selected() {
-		// TODO: Implement this method.
+		this.selected = true;
+	}
+
+	public boolean getSelected(){
+		return this.selected;
 	}
 	
 	public void deselected() {
-		// TODO: Implement this method.
+		this.selected = false;
 	}
 	
 	public void move(int dX, int dY) {
-		// TODO: Implement this method.
+		//update x and y
+		this.x += dX;
+		this.y += dY;
 	}
 
 	public final void paint(Graphics g) {
